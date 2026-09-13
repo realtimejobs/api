@@ -1,0 +1,54 @@
+{
+  "positions": [
+    {
+      "position": {
+        "title": "Backend Engineer",
+        "raw_job_description": "Title: Backend Engineer\nDescription: Build backend services with TypeScript. Full-time, senior individual contributor. English required. Remote within Germany. Salary EUR 70000\u201390000 per year. Visa sponsorship and relocation support are available for Germany. Work within UTC+1 to UTC+2.\nQuestion: Which backend service have you built?",
+        "detected_role": null,
+        "apply_url": "https://example.com/jobs/backend-engineer",
+        "metadata": {
+          "computed_closed_at": null,
+          "computed_posted_at": "2026-09-05T12:00:00.000Z",
+          "last_reopened_at": null,
+          "updated_at": null,
+          "created_at": "2026-09-05T12:05:00.000Z"
+        },
+        "languages": null,
+        "position_type": null,
+        "seniority": null,
+        "salary": null,
+        "employment_type": null,
+        "persona": null,
+        "objective_criteria": null,
+        "locations": null,
+        "remote_scope": null,
+        "allowed_regions": null,
+        "required_citizenships": null,
+        "forbidden_citizenships": null,
+        "visa_sponsorship": null,
+        "visa_sponsorship_availability": null,
+        "relocation_support": null,
+        "relocation_support_availability": null,
+        "timezone_requirements": null,
+        "questions": null
+      },
+      "employer": {
+        "name": "Example Company",
+        "tagline": null,
+        "website": "https://example.com",
+        "industries": [],
+        "markets": [],
+        "known_visa_sponsorship_destinations": [],
+        "known_relocation_destinations": [],
+        "contacts": [],
+        "headcount": null,
+        "layoffs": [],
+        "socials": {
+          "linkedin": null
+        },
+        "spoken_languages": []
+      }
+    }
+  ],
+  "nextCursor": null
+}

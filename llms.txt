@@ -1,0 +1,27 @@
+# RealtimeJobs customer API
+
+> Search jobs matching a subscription's saved filters. Customer HTTP documentation and examples, hosted as files on GitHub.
+
+Resolve these relative links against this file's directory. Read files from the same revision. Use GitHub's Raw view for plain text. This index is a navigation aid; give its URL to your agent explicitly.
+
+## Start
+
+- [Agent guide](agents.md): Setup, read order, request workflow, and interpretation rules.
+- [Quickstart](README.md): Token setup and a self-contained cURL request.
+- [OpenAPI](openapi.yaml): Customer request, response, and error schemas. Production base URL: https://rtj.app.
+
+## Reference
+
+- [Authentication](authentication.md): Issue, list, rotate, and revoke tokens.
+- [Search](search.md): Dates, saved filters, ordering, and pagination.
+- [Response](response.md): Job and employer fields, nulls, and inferred information.
+- [Errors](errors.md): HTTP statuses, error shapes, and bounded retries.
+- [Usage and compatibility](usage-and-compatibility.md): Published policy limits and recommended client budgets.
+- [Recurring imports](recurring-imports.md): Checkpoints, overlap, identity, and synchronization limits.
+- [Changelog](CHANGELOG.md): Documentation corrections and customer-visible contract changes.
+
+## Examples
+
+- [Runnable examples](examples/README.md): Node.js single-page and bounded export scripts.
+- [Response with enrichment](examples/response.json): Complete fictional serialized response.
+- [Response without enrichment](examples/response-no-enrichment.json): Missing normalized data.
