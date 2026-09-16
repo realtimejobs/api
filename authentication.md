@@ -4,7 +4,7 @@
 
 ## Get an API access token
 
-You need a RealtimeJobs subscription. Open your subscription settings with `/settings`, select **API**, and choose **Generate Token**.
+You need a RealtimeJobs subscription. Open your subscription settings with `/settings`, select **API**, and choose **Generate Token**. Token controls are available with a paid plan. On a free or trial plan, select **Unlock API** to upgrade.
 
 Copy the generated token and store it securely, for example as `RTJ_API_TOKEN` in your server environment. The secret is shown only after generation. Copy it before leaving the API tab; you cannot retrieve it later.
 

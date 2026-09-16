@@ -2,6 +2,8 @@
 
 [Back to the API guide](README.md)
 
+This page describes search usage. [Webhook delivery](webhooks.md#delivery-behavior) follows the subscription’s daily notification allowance and separate delivery rules. A valid search token does not establish notification eligibility.
+
 ## Published limits
 
 Each request must specify `pageSize` from 1 through 250. This is a result limit, not a request allowance.
@@ -23,7 +25,7 @@ The documented error contract does not specify a `429` response or rate-limit he
 
 ## Contract changes
 
-The customer endpoint has no API version selector. The `v1` in an API token identifies only its credential format. The OpenAPI `info.version` identifies a documentation revision; it does not select or pin server behavior.
+The search endpoint has no API version selector. Webhook payload `version` identifies the event format; it is independent of token format and documentation revision. The `v1` in an API token identifies only its credential format. The OpenAPI `info.version` identifies a documentation revision; it does not select or pin server behavior.
 
 This guide does not publish a guaranteed breaking-change notice period, deprecation window, or support period for response formats. Review the [changelog](CHANGELOG.md) when updating an integration. A pinned GitHub revision makes your documentation reproducible but does not pin the running API.
 

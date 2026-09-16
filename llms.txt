@@ -1,6 +1,6 @@
 # RealtimeJobs customer API
 
-> Search jobs matching a subscription's saved filters. Customer HTTP documentation and examples, hosted as files on GitHub.
+> Search jobs matching a subscription's saved filters and receive realtime match webhooks. Customer HTTP documentation and examples, hosted as files on GitHub.
 
 Resolve these relative links against this file's directory. Read files from the same revision. Use GitHub's Raw view for plain text. This index is a navigation aid; give its URL to your agent explicitly.
 
@@ -8,11 +8,12 @@ Resolve these relative links against this file's directory. Read files from the 
 
 - [Agent guide](agents.md): Setup, read order, request workflow, and interpretation rules.
 - [Quickstart](README.md): Token setup and a self-contained cURL request.
-- [OpenAPI](openapi.yaml): Customer request, response, and error schemas. Production base URL: https://rtj.app.
+- [OpenAPI](openapi.yaml): Search request, response, and error schemas, plus outbound webhook events. Search base URL: https://rtj.app.
 
 ## Reference
 
 - [Authentication](authentication.md): Issue, list, rotate, and revoke tokens.
+- [Webhooks](webhooks.md): Webapp configuration, event contract, receiver guidance, and delivery limits.
 - [Search](search.md): Dates, saved filters, ordering, and pagination.
 - [Response](response.md): Job and employer fields, nulls, and inferred information.
 - [Errors](errors.md): HTTP statuses, error shapes, and bounded retries.
@@ -22,6 +23,7 @@ Resolve these relative links against this file's directory. Read files from the 
 
 ## Examples
 
-- [Runnable examples](examples/README.md): Node.js single-page and bounded export scripts.
+- [Runnable examples](examples/README.md): Node.js search scripts and a local webhook receiver.
+- [Webhook event](examples/webhook-event.json): Complete fictional realtime match event.
 - [Response with enrichment](examples/response.json): Complete fictional serialized response.
 - [Response without enrichment](examples/response-no-enrichment.json): Missing normalized data.

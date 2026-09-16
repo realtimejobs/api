@@ -1,9 +1,11 @@
 openapi: 3.1.1
 info:
   title: RealtimeJobs customer API
-  version: "2026-09-13"
+  version: "2026-09-15"
   description: |
-    Fetch jobs matching the token's subscription filters. This document describes
+    Fetch jobs matching the token's subscription filters and receive realtime
+    match events at a receiver configured in the webapp. Outbound events are
+    described under webhooks. This document describes
     the customer HTTP interface. The version identifies a documentation revision,
     not an API version selector or a guarantee of server compatibility.
     Read README.md for setup, response.md for field semantics, errors.md for
@@ -107,6 +109,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SearchError"
+webhooks:
+  position.matched:
+    post:
+      operationId: receivePositionMatched
+      summary: Receive a realtime job match
+      description: >-
+        RTJ sends this request to a receiver URL configured in the webapp. No signature or receiver
+        authentication header is sent. The five-second deadline starts with the HTTP request, not job
+        matching. Delivery can be lost or duplicated and has no ordering guarantee, redirects, or retries.
+        Validate and save accepted events before acknowledging. See webhooks.md for notification eligibility
+        and recovery limits.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PositionMatchedEvent"
+      responses:
+        2XX:
+          description: Receiver accepted the event; this does not confirm downstream processing.
+        default:
+          description: Attempt failed. RTJ does not retry, including on 429 or 5xx responses.
 components:
   securitySchemes:
     bearerAuth:
@@ -116,6 +141,36 @@ components:
         Use the complete RTJ_API_TOKEN as an opaque secret. The token format version is independent of the endpoint
         contract.
   schemas:
+    PositionMatchedEvent:
+      allOf:
+        - $ref: "#/components/schemas/Job"
+        - type: object
+          required:
+            - version
+            - type
+            - subscriptionId
+            - occurredAt
+            - positionId
+          properties:
+            version:
+              type: integer
+              const: 1
+              description: Event format version; independent of token format and documentation revision.
+            type:
+              type: string
+              const: position.matched
+            subscriptionId:
+              type: integer
+              description: Subscription that accepted the notification.
+            occurredAt:
+              type: string
+              format: date-time
+              description: Payload preparation time, not a delivery ID or deduplication key.
+            positionId:
+              type: string
+              description: >-
+                Opaque position identifier, reused when a position reopens. Not a unique event or delivery ID.
+                Search results do not expose this ID; no permanent identity guarantee is published.
     SearchRequest:
       type: object
       additionalProperties: false

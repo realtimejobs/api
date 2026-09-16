@@ -28,6 +28,10 @@ Keep your own record ID, source URL, first-seen time, last-seen time, and run re
 
 A job missing from a later search is not proof that it closed or was deleted. It may no longer match the filters or date window. `computed_closed_at: null` means no closure time is available, not that the source still accepts applications. Check the source posting when status matters.
 
+## Combine searches and webhooks
+
+[Webhooks](webhooks.md) can deliver realtime matches while searches fetch historical jobs. Webhook `positionId` is not present in search results, so there is no shared public ID for an exact join. Source URLs remain matching hints. Webhooks can be lost or duplicated and do not supply a complete update or deletion stream. Combining both methods does not establish complete synchronization.
+
 ## Limits of this approach
 
 Overlap can reduce missed late arrivals and can expose changes to jobs within the overlap. It cannot guarantee complete imports, permanent identity, or all updates and deletions. Periodic wider searches can find more older jobs, but still have these limits and use more calls. Contact [RTJ support](https://t.me/RealtimeJobsSupport) if your workflow requires complete synchronization.

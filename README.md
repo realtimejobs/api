@@ -2,13 +2,15 @@
 
 Fetch jobs that match your saved RealtimeJobs filters. Each result includes a job title, source URL, employer, and available enrichment such as salary and location.
 
+To receive realtime matching jobs, configure a receiver in the webapp and follow the [webhook guide](webhooks.md). The search quickstart below uses an API token; webhook receivers do not need one.
+
 ## Get your first results
 
 You need a RealtimeJobs subscription and cURL 7.76 or later. This request works from any directory. Node.js is needed only for the optional [runnable scripts](examples/README.md).
 
 ### 1. Get a token
 
-Open your RealtimeJobs subscription settings with `/settings`, select **API**, and choose **Generate Token**.
+Open your RealtimeJobs subscription settings with `/settings`, select **API**, and choose **Generate Token**. Token controls are available with a paid plan. On a free or trial plan, select **Unlock API** to upgrade.
 
 Copy the generated token. Keep it in your secret store or set it as `RTJ_API_TOKEN` in your local environment. The production API base URL is `https://rtj.app`.
 
@@ -76,7 +78,7 @@ The [OpenAPI specification](openapi.yaml) provides the machine-readable HTTP con
 
 Read the documentation at [realtimejobs/api](https://github.com/realtimejobs/api). Give your agent the [agent integration guide](https://github.com/realtimejobs/api/blob/HEAD/agents.md). GitHub's **Raw** view provides the Markdown without the page interface. Keep all files on the same branch, tag, or commit when downloading them. The [documentation index](llms.txt) lists the files to read; link it explicitly rather than relying on automatic discovery.
 
-Copy this prompt:
+For a search integration, copy this prompt. For a webhook receiver, give your agent the [webhook guide](webhooks.md) and [event fixture](examples/webhook-event.json) instead:
 
 ```text
 Build a RealtimeJobs integration using the documentation at

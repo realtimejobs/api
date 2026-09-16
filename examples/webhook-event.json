@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "type": "position.matched",
+  "subscriptionId": 41,
+  "occurredAt": "2026-09-05T12:10:00.000Z",
+  "positionId": "example-position-42",
+  "position": {
+    "title": "Backend Engineer",
+    "raw_job_description": "Title: Backend Engineer\nDescription: Build backend services with TypeScript. Full-time, senior individual contributor. English required. Remote within Germany. Salary EUR 70000\u201390000 per year. Visa sponsorship and relocation support are available for Germany. Work within UTC+1 to UTC+2.\nQuestion: Which backend service have you built?",
+    "detected_role": "Backend Engineer",
+    "apply_url": "https://example.com/jobs/backend-engineer",
+    "metadata": {
+      "computed_closed_at": null,
+      "computed_posted_at": "2026-09-05T12:00:00.000Z",
+      "last_reopened_at": null,
+      "updated_at": null,
+      "created_at": "2026-09-05T12:05:00.000Z"
+    },
+    "languages": ["en"],
+    "position_type": "IC",
+    "seniority": "SENIOR",
+    "salary": {
+      "min": 70000,
+      "max": 90000,
+      "currency": "EUR"
+    },
+    "employment_type": "FT",
+    "persona": "Senior backend engineer with TypeScript experience.",
+    "objective_criteria": [
+      {
+        "criteria": "Has experience with TypeScript.",
+        "is_mandatory": true,
+        "class": "SKILL_TECHNICAL"
+      }
+    ],
+    "locations": [
+      {
+        "city": null,
+        "country": "DE",
+        "state": null,
+        "attendance": ["remote"]
+      }
+    ],
+    "remote_scope": "geo_restricted",
+    "allowed_regions": ["DE"],
+    "required_citizenships": [],
+    "forbidden_citizenships": [],
+    "visa_sponsorship": ["DE"],
+    "visa_sponsorship_availability": "AVAILABLE",
+    "relocation_support": ["DE"],
+    "relocation_support_availability": "AVAILABLE",
+    "timezone_requirements": {
+      "summary": "Work within UTC+1 to UTC+2.",
+      "utc_range": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    "questions": ["Which backend service have you built?"]
+  },
+  "employer": {
+    "name": "Example Company",
+    "tagline": null,
+    "website": "https://example.com",
+    "industries": [],
+    "markets": [],
+    "known_visa_sponsorship_destinations": [],
+    "known_relocation_destinations": [],
+    "contacts": [],
+    "headcount": null,
+    "layoffs": [],
+    "socials": {
+      "linkedin": null
+    },
+    "spoken_languages": []
+  }
+}

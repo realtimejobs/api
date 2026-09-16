@@ -4,7 +4,7 @@
 
 Requires Node.js 22 or later. No package installation is needed. The cURL quickstart also requires cURL 7.76 or later.
 
-Download this documentation directory with its `examples/` folder. Run commands from the directory containing the main API README. The examples use `https://rtj.app`. Configure `RTJ_API_TOKEN` as described in the [quickstart](../README.md#get-your-first-results).
+Download this documentation directory with its `examples/` folder. Run commands from the directory containing the main API README. The examples use `https://rtj.app`. For search examples, configure `RTJ_API_TOKEN` as described in the [quickstart](../README.md#get-your-first-results).
 
 ## Fetch one page
 
@@ -43,3 +43,26 @@ The shared [client](client.mjs) sets a 60-second timeout per request. This is an
 The [sample response](response.json) contains fictional data. Actual results depend on your filters and available jobs.
 
 For scheduled runs, read [Recurring imports](../recurring-imports.md). These examples do not implement checkpoints or deduplication.
+
+## Receive a sample webhook
+
+Requires Node.js 22 or later. Run from the documentation directory:
+
+```bash
+node examples/webhook-receiver.mjs
+```
+
+In a second terminal in the same directory, send the fictional event:
+
+```bash
+curl --fail-with-body --silent --show-error \
+  "http://127.0.0.1:3000/webhooks/rtj" \
+  --header 'Content-Type: application/json' \
+  --data-binary @examples/webhook-event.json
+```
+
+A successful call returns HTTP `204` with no body. The receiver writes one JSON file per accepted request to `rtj-webhook-events/` in the current directory. Stop it with Ctrl+C and remove these sample files when finished.
+
+The example listens only on loopback; RTJ cannot reach it. It does not register a webhook or contact RTJ. For deployed use, provide your own HTTPS endpoint and configure its URL in the webapp.
+
+The example checks basic envelope fields, accepts additional fields, limits bodies to 1 MiB, and saves a file before acknowledging. This size limit is an example choice, not an RTJ limit. Each request gets a new local filename; filenames are not RTJ event IDs. Repeated events are saved separately. The example does not authenticate the sender, validate all job fields, implement deduplication, or provide a production storage queue. See [receiver guidance](../webhooks.md#receive-and-process-events) before adapting it. The search examples' `RTJ_API_TOKEN` requirement does not apply to this receiver.
